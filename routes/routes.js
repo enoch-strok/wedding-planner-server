@@ -1,8 +1,8 @@
-const ProjectController = require("../controllers/project");
+const GuestController = require("../controllers/guest");
 
 module.exports = (app) => {
-    app.post("/project/add", ProjectController.add);
-    app.post("/project/editProject", ProjectController.editProject);
-    app.get("/project/all", ProjectController.showAllProject);
-    app.delete('/project/delete/:id', ProjectController.deleteProject);
+    app.post("/guest/add", GuestController.add);
+    app.post("/guest/editGuest", GuestController.editGuest);
+    app.get("/guest/all", GuestController.showAllGuests);
+    app.delete('/guest/delete/:id', GuestController.deleteGuest);
 }

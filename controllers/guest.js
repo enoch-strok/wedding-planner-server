@@ -1,10 +1,10 @@
-const { Project } = require("../models/ProjectModel");
+const { Guest } = require("../models/GuestModel");
 const ex = module.exports;
 
 
 ex.add = (req, res) => {
-    Project.create(req.body)
-        .then(project => res.json(project))
+    Guest.create(req.body)
+        .then(guest => res.json(guest))
         .then(console.log(req.body))
         .catch(err => res.json({
             "error": err,
@@ -12,9 +12,9 @@ ex.add = (req, res) => {
         }));
 }
 
-ex.editProject = (req, res) => {
-    Project.findOneAndUpdate(filtergoeshere,req.body)
-        .then(project => res.json(project))
+ex.editGuest = (req, res) => {
+    Guest.findOneAndUpdate(filtergoeshere,req.body)
+        .then(guest => res.json(guest))
         .then(console.log(req.body))
         .catch(err => res.json({
             "error": err,
@@ -22,15 +22,15 @@ ex.editProject = (req, res) => {
         }));
 }
 
-ex.showAllProject = (req, res) => {
+ex.showAllGuests = (req, res) => {
     
-    Project.find()
-        .then(project => res.json(project))
+    Guest.find()
+        .then(guest => res.json(guest))
         .catch(err => res.json(err));
 };
 
-ex.deleteProject = (req, res) => {
-    Project.deleteOne({ _id: req.params.id })
+ex.deleteGuest = (req, res) => {
+    Guest.deleteOne({ _id: req.params.id })
     .then(deleteConfirmation => res.json(deleteConfirmation))
     .catch(err => res.json(err))
 };
